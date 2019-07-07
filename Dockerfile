@@ -1,6 +1,6 @@
-FROM frolvlad/alpine-glibc:alpine-3.8
+FROM frolvlad/alpine-glibc:alpine-3.10
 
-ENV DENO_VERSION=0.2.6
+ENV DENO_VERSION=0.10.0
 
 RUN apk add --no-cache --virtual=.build-deps wget \
     && wget "https://github.com/denoland/deno/releases/download/v$DENO_VERSION/deno_linux_x64.gz" -O deno.gz \
