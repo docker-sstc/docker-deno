@@ -1,21 +1,34 @@
 # docker-deno
 
-- Uses alpine as the base. That is it, it's very common distribution in docker world.
+- Build from official release binary files.
 
 ## Usage
 
-```sh
-# interactive mode (default)
-docker run -it --rm sstc/deno
+> Interactive mode
 
-# show version
-docker run --rm sstc/deno deno --version
-
-# mount current folder and run
-docker run --rm -v `pwd`:/app -w /app sstc/deno deno --allow-net --allow-write main.ts
+```console
+$ docker run --rm -it sstc/deno
+Deno 1.0.0
+exit using ctrl+d or close()
+>
 ```
 
-## Similar repos
+> Show version
 
-- https://github.com/maxmcd/deno-docker
-- https://github.com/hayd/deno_docker
+```console
+$ docker run --rm sstc/deno deno --version
+deno 1.0.0
+v8 8.4.300
+typescript 3.9.2
+```
+
+> Run program
+
+```sh
+docker run --rm -v `pwd`:/app sstc/deno deno --allow-net --allow-write main.ts
+```
+
+## Similar projects
+
+- [https://github.com/maxmcd/deno-docker](https://github.com/maxmcd/deno-docker)
+- [https://github.com/hayd/deno_docker](https://github.com/hayd/deno_docker)

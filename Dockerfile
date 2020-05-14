@@ -1,12 +1,15 @@
-FROM frolvlad/alpine-glibc:alpine-3.10
+FROM frolvlad/alpine-glibc:alpine-3.11
 
-ENV DENO_VERSION=0.13.0
+ARG VERSION=1.0.0
+ENV DENO_VERSION=${VERSION}
+ENV DENO_URL=https://github.com/denoland/deno/releases/download/v${VERSION}/deno-x86_64-unknown-linux-gnu.zip
 
-RUN apk add --no-cache --virtual=.build-deps wget \
-    && wget "https://github.com/denoland/deno/releases/download/v$DENO_VERSION/deno_linux_x64.gz" -O deno.gz \
-    && gunzip -c deno.gz > /bin/deno \
-    && chmod +x /bin/deno \
-    && apk del .build-deps \
-    && rm deno.gz
+RUN apk add --no-cache --virtual=.build-deps wget unzip; \
+	wget -O deno.zip "${DENO_URL}"; \
+	unzip deno.zip -d /usr/local/bin/; \
+	apk del .build-deps; \
+	rm deno.zip
+
+WORKDIR /app
 
 CMD ["deno"]
