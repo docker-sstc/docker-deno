@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-glibc:alpine-3.11
+FROM frolvlad/alpine-glibc:alpine-3.12
 
 ARG VERSION=1.0.0
 ENV DENO_VERSION=${VERSION}
