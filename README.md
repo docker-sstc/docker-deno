@@ -1,6 +1,6 @@
 # docker-deno
 
-- Build from official release binary files.
+- Build from [official release binary files](https://github.com/denoland/deno/releases/)
 
 ## Usage
 

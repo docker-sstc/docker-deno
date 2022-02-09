@@ -1,6 +1,6 @@
-FROM frolvlad/alpine-glibc:alpine-3.11
+FROM frolvlad/alpine-glibc:alpine-3.15
 
-ARG VERSION=1.0.0
+ARG VERSION=1.18.2
 ENV DENO_VERSION=${VERSION}
 ENV DENO_URL=https://github.com/denoland/deno/releases/download/v${VERSION}/deno-x86_64-unknown-linux-gnu.zip
 
